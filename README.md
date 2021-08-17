@@ -3,7 +3,7 @@ Important! this project only working for ARM architecture.
 Mainly intended to perform automatic backups from a PostgresSQL database to AWS S3
 
 # Note
-Tested on Raspberry Pi 3 and 4 and using PostgresSQL version 13.1
+Tested on Raspberry Pi 3 and 4, using PostgresSQL version 13.1
 
 ## Usage
 
@@ -15,7 +15,7 @@ $ docker run -e S3_ACCESS_KEY_ID=key -e S3_SECRET_ACCESS_KEY=secret -e S3_BUCKET
 Docker Compose:
 ```yaml
 postgres:
-  image: postgres
+  image: postgres:13.1
   environment:
     POSTGRES_USER: user
     POSTGRES_PASSWORD: password
@@ -40,7 +40,7 @@ pgbackups3:
 
 ### Automatic Periodic Backups
 
-You can additionally set the `SCHEDULE` environment variable like `-e SCHEDULE="@daily"` to run the backup automatically.
+You can additionally set the `SCHEDULE` environment variables like `-e SCHEDULE="@daily"` to run the backup automatically.
 
 More information about the scheduling can be found [here](http://godoc.org/github.com/robfig/cron#hdr-Predefined_schedules).
 
